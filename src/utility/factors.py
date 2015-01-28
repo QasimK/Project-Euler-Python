@@ -1,9 +1,3 @@
-'''
-Created on 5 Apr 2010
-
-@author: Qasim
-'''
-
 import math as maths
 
 def is_factor(possible_factor, number):

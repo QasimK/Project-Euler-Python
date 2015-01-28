@@ -1,10 +1,4 @@
 '''
-Created on 8 Jun 2010
-
-@author: Qasim
-'''
-
-'''
 Starting with the number 1 and moving to the right in a clockwise direction
 a 5 by 5 spiral is formed as follows:
 

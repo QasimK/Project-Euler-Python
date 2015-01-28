@@ -1,10 +1,4 @@
 '''
-Created on 4 Apr 2010
-
-@author: Qasim
-'''
-
-'''
 You are given the following information, but you may prefer
 to do some research for yourself.
 

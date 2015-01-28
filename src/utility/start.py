@@ -1,10 +1,4 @@
-'''
-Created on 6 Dec 2010
-
-@author: Corsair
-
-If run as a script this will output the last profile stats.
-'''
+'''If run as a script this will output the stats of the last profile.'''
 
 import os.path
 import time

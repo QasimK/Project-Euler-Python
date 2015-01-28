@@ -1,9 +1,3 @@
-'''
-Created on 3 Sep 2011
-
-@author: Qasim
-'''
-
 """
 Consider all integer combinations of ab for 2  a  5 and 2  b  5:
 

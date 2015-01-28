@@ -1,9 +1,3 @@
-'''
-Created on 11 Nov 2011
-
-@author: Qasim
-'''
-
 """Problem:
 The number 3797 has an interesting property. Being prime itself, it is
 possible to continuously remove digits from left to right, and remain
@@ -70,9 +64,7 @@ def p37a():
     
     return sum(real_answer)
 
-def p37b():
-    pass
 
 if __name__ == '__main__':
     import utility.start as start
-    start.time_functions(p37b)
+    start.time_functions(p37a)

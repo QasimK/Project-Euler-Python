@@ -1,10 +1,4 @@
 '''
-Created on 25 May 2010
-
-@author: Qasim
-'''
-
-'''
 A perfect number is a number for which the sum of its
 proper divisors is exactly equal to the number.
 For example, the sum of the proper divisors of 28

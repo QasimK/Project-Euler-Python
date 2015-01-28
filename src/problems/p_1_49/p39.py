@@ -1,9 +1,3 @@
-'''
-Created on 28 Jan 2012
-
-@author: Qasim
-'''
-
 """Problem:
 If p is the perimeter of a right angle triangle with integral length
 sides, {a,b,c}, there are exactly three solutions for p = 120.
@@ -52,7 +46,7 @@ def p39b():
         max_a = m.ceil((p/3) - 1)
         for a in range(3, max_a+1):
             b = p*(2*a - p)/(2*(a - p)) #Must be whole number
-            print(p, a, b, p-a-b)
+            #print(p, a, b, p-a-b)
             if m.floor(b) == m.ceil(b):
                 #We have a triple
                 if p not in py_triples:

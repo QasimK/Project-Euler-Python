@@ -1,11 +1,4 @@
-'''
-***Use the better primes2 instead.***
-
-Created on 7 Nov 2009
-@author: Qasim
-
-Check if a number is prime, get a list of prime numbers etc.
-'''
+'''***Use primes2 instead.***'''
 
 import math as maths
 

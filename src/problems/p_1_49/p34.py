@@ -1,10 +1,4 @@
 '''
-Created on 6 Dec 2010
-
-@author: Qasim
-'''
-
-'''
 145 is a curious number, as 1! + 4! + 5! = 1 + 24 + 120 = 145.
 
 Find the sum of all numbers which are equal to the sum of the factorial of their
@@ -47,7 +41,6 @@ def p34():
 def p34alt():
     """Find the digit_factorial for n digit numbers and then see if it is equal
     to any number that is n digits!"""
-    
     pass
 
 import utility.start

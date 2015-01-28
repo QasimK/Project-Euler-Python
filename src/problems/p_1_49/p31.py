@@ -1,9 +1,3 @@
-'''
-Created on 22 Sep 2011
-
-@author: Qasim
-'''
-
 """
 Problem:
 In England the currency is made up of pound, £, and pence, p, and
@@ -81,4 +75,4 @@ def p31():
     
 
 if __name__ == '__main__':
-    start.time_functions(p31, profile=True)
+    start.time_functions(p31)

@@ -1,9 +1,4 @@
 '''
-Created on 31 Oct 2010
-
-@author: Qasim
-'''
-'''
 Euler published the remarkable quadratic formula:
 
 n² + n + 41
@@ -34,19 +29,20 @@ But b is prime (from n = 0)
 (3) Also when n=b, the result is not prime
 '''
 
-import utility.prime_numbers as primtest
+import utility.primes as primtest
 
 def p27():
-    max = (0, 0, 0) #(a, b, prime-count)
+    _max = (0, 0, 0) #(a, b, prime-count)
     
-    def enumerate_b(sign, max):
-        for b in primtest.get_prime():get_primes     if b > 999:
+    def enumerate_b(sign, _max):
+        for b in primtest.get_primes():
+            if b > 999:
                 break
             
             b *= sign
             
             #(3)
-            if b**2 < max[2]**2:
+            if b**2 < _max[2]**2:
                 continue
             
             prime = True
@@ -57,16 +53,16 @@ def p27():
                     n += 1
                 else:
                     prime = False
-                    if max[2] < n:
-                        max = (a, b, n)
+                    if _max[2] < n:
+                        _max = (a, b, n)
         
-        return max
+        return _max
     
     for a in range(-999, 1000, 2):
-        max = enumerate_b(1, max)
-        max = enumerate_b(-1, max)
+        _max = enumerate_b(1, _max)
+        _max = enumerate_b(-1, _max)
     
-    return max[0]*max[1]
+    return _max[0]*_max[1]
 
 if __name__ == '__main__':
     import time

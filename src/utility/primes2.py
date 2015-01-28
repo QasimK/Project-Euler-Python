@@ -1,9 +1,3 @@
-'''
-Created on 3 Sep 2011
-
-@author: Qasim
-'''
-
 import array
 import math as maths
 
@@ -94,4 +88,3 @@ class PrimeList:
         for i, is_prime in enumerate(self.number_list):
             s += "%s: %s\n"%(i, is_prime)
         print(s)
-

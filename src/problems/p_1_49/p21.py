@@ -1,10 +1,4 @@
 '''
-Created on 5 Apr 2010
-
-@author: Qasim
-'''
-
-'''
 Let d(n) be defined as the sum of proper divisors of n
 (numbers less than n which divide evenly into n).
 If d(a) = b and d(b) = a, where a ≠ b, then a and b are
@@ -50,10 +44,10 @@ if __name__ == '__main__':
     list_of_numbers_to_ignore = [] #Because they have already been checked
     amicable_pairs = []
     
-    max = 10000
-    for x in range(4, max): #Excludes 10,000 (we know 1, 2, 3 are not amicable)
+    _max = 10000
+    for x in range(4, _max): #Excludes 10,000 (we know 1, 2, 3 are not amicable)
         if x not in list_of_numbers_to_ignore:
-            x_proper_factors = factors.geget_proper_divsor)
+            x_proper_factors = factors.get_proper_divisor(x)
             x_factors_sum = sum(x_proper_factors)
             
             y = x_factors_sum
@@ -63,8 +57,8 @@ if __name__ == '__main__':
                 #x is odd but y is not odd
                 continue
             
-            if y < max and y != x:
-                y_proper_factors = factors.geget_proper_divsor)
+            if y < _max and y != x:
+                y_proper_factors = factors.get_proper_divisor(y)
                 y_factors_sum = sum(y_proper_factors)
                 
                 if y_factors_sum == x:
@@ -73,10 +67,10 @@ if __name__ == '__main__':
                     list_of_numbers_to_ignore.append(y)
         
     
-    def sum_double_list(list):
+    def sum_double_list(_list):
         """Return the sum of all the numbers of all the lists inside a list"""
         total_sum = 0
-        for list2 in list:
+        for list2 in _list:
             total_sum += sum(list2)
         return total_sum
     

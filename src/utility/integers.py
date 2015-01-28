@@ -1,9 +1,3 @@
-'''
-Created on 17 Jul 2010
-
-@author: Corsair
-'''
-
 import math as maths
 
 def is_integer(number):

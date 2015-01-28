@@ -1,10 +1,4 @@
 '''
-Created on 7 Apr 2010
-
-@author: Qasim
-'''
-
-'''
 Using names.txt  (right click and 'Save Link/Target As...'),
 a 46K text file containing over five-thousand first names,
 begin by sorting it into alphabetical order. Then working out the

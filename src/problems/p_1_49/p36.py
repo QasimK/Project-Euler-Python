@@ -1,10 +1,4 @@
 '''
-Created on 18 Jul 2010
-
-@author: Qasim
-'''
-
-'''
 The decimal number, 585 = 1001001001_(2) (binary), is palindromic in both bases.
 
 Find the sum of all numbers, less than one million, which are palindromic in
@@ -162,9 +156,9 @@ def num_is_palindromic_2(num_str):
         #size = 0
         assert(False)
 
-def p26():
+def p36():
     _sum = 0
-    for num in range(1, 10**8-1, 2):
+    for num in range(1, 10**6-1, 2):
         if num_is_palindromic_10(num):
             if num_is_palindromic_2(base_10_to_2(num)):
                 _sum += num
@@ -174,5 +168,5 @@ def p26():
 if __name__ == '__main__':
     import time
     start = time.time()
-    print(p26())
+    print("answer", p36())
     print("Time taken: ", (time.time()-start)*1000, "ms", sep="")

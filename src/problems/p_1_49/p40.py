@@ -1,9 +1,3 @@
-'''
-Created on 3 Sep 2011
-
-@author: Qasim
-'''
-
 """
 An irrational decimal fraction is created by concatenating the +ve integers:
 
@@ -50,7 +44,10 @@ def p40():
             #   n=102
             dn_list.append(str(num)[-(n-n_wanted)-1])
     
-    return dn_list
+    p = 1
+    for x in [int(s) for s in dn_list]:
+        p *= x
+    return p
         
 
 if __name__=="__main__":
