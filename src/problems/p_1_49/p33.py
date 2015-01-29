@@ -4,7 +4,7 @@ In digit notation consider ab/cd, where 1 <= a, b, c, d, <= 9 and ab < cd.
 
 Want:
 (a) ab/cd = (i)b/d, or (ii)b/c, or (iii)a/d, or (iv)a/c
-(b)   AND   (i)a=c, or (ii)a=d, or (iii)b=c, or (iv)b=d
+(b)   AND   (i)a=c, or (ii)a=d, or (iii)b=c, or (iv)b=d, respectively
 """
 
 import fractions
@@ -26,7 +26,6 @@ def p33():
             frac = numerator/denominator
             if (a == c and frac == b/d) or (a == d and frac == b/c) or\
               (b==c and frac == a/d) or (b == d and frac == a/c):
-                print((numerator, denominator))
                 the_fracs.append(fractions.Fraction(numerator, denominator))
     
     final_frac = fractions.Fraction(1)
