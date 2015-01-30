@@ -5,12 +5,12 @@ import utility.factors as factors
 import utility.generic as ug
 
 class PrimeList:
-    """A simple class for holding whether numbers are prime or not"""
+    """Generate and check for prime numbers"""
     
     def __init__(self):
         #: Starting from 0, 1, 2, 3, 4, 5, .... 1 means it *IS* a prime
         self.number_list = array.array('b', [0, 0, 1, 1, 0, 1])
-        
+    
     def max_known_number(self):
         """Return the maximum number which is known to be a prime or not"""
         return len(self.number_list)-1
@@ -32,7 +32,7 @@ class PrimeList:
         
         num_new = upto_num - max_cur_known
         #All new numbers are primes until they are crossed off
-        self.number_list.extend([1]*num_new)
+        self.number_list.extend(array.array('b', [1])*num_new)
         
         for marker_num in range(2, maths.floor(upto_num/2) + 1):
             #For efficiency only use prime marked numbers
@@ -68,12 +68,19 @@ class PrimeList:
             else:
                 self.number_list.extend([1]) #Did not break => Prime
     
-    
     def get_primes(self, startnum=2):
         """A generator which returns prime numbers
         
         It starts from 2 unless specified otherwise"""
         for i in ug.grange(startnum):
+            if self.is_prime(i):
+                yield i
+    
+    def get_primes_grange(self, grange):
+        """Return generator yielding primes in generic.grange.
+        
+        If you have a large grange, you are better off doing a sieve first."""
+        for i in grange:
             if self.is_prime(i):
                 yield i
     
