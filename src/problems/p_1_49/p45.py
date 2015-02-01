@@ -21,11 +21,10 @@ the n, the n is an integer when reversed from the hexagonal number to produce
 the pentagonal base number.
 """
 
-import utility.start as start
-import utility.integers as integers
+from utility import start, integers
 
 
-def p43():
+def p45():
     def get_pentagonal_number(n):
         return 0.5*n*(3*n-1)
     def get_hexagonal_number(n):
@@ -75,4 +74,4 @@ def p43():
 
 
 if __name__ == '__main__':
-    start.time_functions(p43)
+    start.time_functions(p45)
