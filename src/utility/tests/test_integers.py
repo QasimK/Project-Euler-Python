@@ -70,7 +70,26 @@ class Test(unittest.TestCase):
         self.assertFalse(integers.is_triangle_number(5000000049999999))
         self.assertTrue(integers.is_triangle_number(5000000050000000))
         self.assertFalse(integers.is_triangle_number(5000000050000001))
-
+    
+    def test_is_pentagonal(self):
+        self.assertTrue(integers.is_pentagonal(117))
+        self.assertFalse(integers.is_pentagonal(118))
+        
+        self.assertFalse(integers.is_pentagonal(144))
+        self.assertTrue(integers.is_pentagonal(145))
+        self.assertFalse(integers.is_pentagonal(146))
+    
+    def test_get_pentagonal(self):
+        self.assertEqual(integers.get_pentagonal(1), 1)
+        self.assertEqual(integers.get_pentagonal(10), 145)
+    
+    def test_get_pentagonals(self):
+        pentagonals = integers.get_pentagonals()
+        actual_pentagonals = [1, 5, 12, 22, 35, 51, 70, 92, 117, 145]
+        for i in range(10):
+            with self.subTest(i=i):
+                self.assertEqual(next(pentagonals), actual_pentagonals[i])
+    
 
 if __name__ == "__main__":
     unittest.main()

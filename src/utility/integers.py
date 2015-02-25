@@ -45,7 +45,7 @@ def get_triangle_numbers():
 def is_triangle_number(number):
     """This is rather slow as there is no caching
     
-    Warning there may be precision issues with very large numbers"""
+    Warning: there may be precision issues with very large numbers"""
     
     return is_integer(maths.sqrt(2*number + 0.25) - 0.5)
     
@@ -54,4 +54,26 @@ def is_triangle_number(number):
         if number == triangle_number:
             return True
         elif number < triangle_number:
+            return False
+
+def get_pentagonal(n):
+    '''Return nth pentagonal number: n*(3*n - 1) / 2'''
+    return n*(3*n - 1) / 2
+
+def get_pentagonals():
+    pentagonal = 1
+    add = 4
+    while True:
+        yield pentagonal
+        pentagonal += add
+        add += 3
+
+def is_pentagonal(num):
+    """This is rather slow as there is no caching"""
+    for pentagonal in get_pentagonals():
+        if num > pentagonal:
+            continue
+        elif num == pentagonal:
+            return True
+        else:
             return False
