@@ -14,7 +14,7 @@ def p41():
     prime_list.sieve(MAX_NUM)
     
     max_prime_pandigital = 0
-    for prime in prime_list.get_primes_grange(generic.grange(MAX_NUM, -1)):
+    for prime in prime_list.get_primes_in(generic.grange(MAX_NUM, -1)):
         if ''.join(sorted(str(prime))) == '1234567':
             max_prime_pandigital = prime
             break

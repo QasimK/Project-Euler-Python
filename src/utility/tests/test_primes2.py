@@ -1,9 +1,3 @@
-'''
-Created on 3 Sep 2011
-
-@author: Qasim
-'''
-
 import unittest
 
 import utility.primes2 as primes
@@ -48,9 +42,13 @@ class Test(unittest.TestCase):
         self.assertTrue(self.prime_list.is_prime(73))
         self.assertFalse(self.prime_list.is_prime(55))
         
-        self.assertTrue(self.prime_list.is_prime(149))
         self.assertFalse(self.prime_list.is_prime(148))
-    
+        self.assertTrue(self.prime_list.is_prime(149))
+        self.assertFalse(self.prime_list.is_prime(150))
+        self.assertTrue(self.prime_list.is_prime(151))
+        
+        self.assertTrue(self.prime_list.is_prime(241))
+        self.assertFalse(self.prime_list.is_prime(242))
     
     def test_get_primes(self):
         prime_generator = self.prime_list.get_primes()
@@ -64,6 +62,11 @@ class Test(unittest.TestCase):
         self.assertEqual(next(prime_generator), 19)
         self.assertEqual(next(prime_generator), 23)
     
+    def test_get_primes_in(self):
+        primes = self.prime_list.get_primes_in(range(5, 13))
+        self.assertEqual(next(primes), 5)
+        self.assertEqual(next(primes), 7)
+        self.assertEqual(next(primes), 11)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

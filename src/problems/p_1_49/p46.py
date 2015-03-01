@@ -16,6 +16,7 @@ from utility import start, generic, primes2
 
 def p46():
     primes = primes2.PrimeList()
+    #primes.sieve(4300)
     
     for odd in generic.grange(35, 2):
         if primes.is_prime(odd):

@@ -1,9 +1,6 @@
 import array
 import math as maths
 
-import utility.factors as factors
-import utility.generic as ug
-
 class PrimeList:
     """Generate and check for prime numbers"""
     
@@ -17,17 +14,12 @@ class PrimeList:
     
     def is_prime(self, number):
         if self.max_known_number() < number:
-            self.continue_checking(number)
+            self.sieve(number)
         
-        if self.number_list[number] == 1:
-            return True
-        else:
-            return False
+        return self.number_list[number] == 1
     
     def sieve(self, upto_num):
-        """Generate primes upto and inc. the number specified.
-        
-        Requires a prime list holder to generate into."""
+        """Store primes up to and including the number specified."""
         max_cur_known = self.max_known_number()
         
         num_new = upto_num - max_cur_known
@@ -46,43 +38,23 @@ class PrimeList:
             for non_prime in non_primes:
                 self.number_list[non_prime] = 0
     
-    def continue_checking(self, upto_num):
-        """Continue building primes upto upto_num
-        
-        This is slower than using sieve"""
-        checked_upto = self.max_known_number()
-        #Only need to check odd numbers!
-        if checked_upto % 2 == 0:
-            checked_upto -= 1
-        
-        while checked_upto < upto_num:
-            checked_upto += 2
-            self.number_list.extend([0]) #Even number, (+1)
-            #Now check the current odd number, (+2)
-            
-            factor_limit = maths.floor(maths.sqrt(checked_upto))
-            for possible_factor in range(3, factor_limit+1, 2):
-                if factors.is_factor(possible_factor, checked_upto):
-                    self.number_list.extend([0])
-                    break #The number is not a prime
-            else:
-                self.number_list.extend([1]) #Did not break => Prime
-    
     def get_primes(self, startnum=2):
         """A generator which returns prime numbers
         
         It starts from 2 unless specified otherwise"""
-        for i in ug.grange(startnum):
+        i = startnum
+        while True:
             if self.is_prime(i):
                 yield i
+            i += 1
     
-    def get_primes_grange(self, grange):
-        """Return generator yielding primes in generic.grange.
+    def get_primes_in(self, grange):
+        """Return generator yielding primes within a generator
         
         If you have a large grange, you are better off doing a sieve first."""
-        for i in grange:
-            if self.is_prime(i):
-                yield i
+        for n in grange:
+            if self.is_prime(n):
+                yield n
     
     def __str__(self):
         s=""
