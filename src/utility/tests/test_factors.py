@@ -1,9 +1,5 @@
-'''
-Created on 11 Nov 2011
-
-@author: Qasim
-'''
 import unittest
+
 import utility.factors as uf
 
 
@@ -41,7 +37,7 @@ class Test(unittest.TestCase):
         self.assertEqual(set(uf.get_proper_factors(32)), {2, 16, 4, 8})
     
     def test_eulers_algorithm(self):
-        eatest = uf.eulers_algorithm(76, 45)
+        eatest = uf.euclids_algorithm(76, 45)
         self.assertSequenceEqual(next(eatest), (1, 31, 1, 1))
         self.assertSequenceEqual(next(eatest), (1, 14, 2, 1))
         self.assertSequenceEqual(next(eatest), (2, 3, 5, 3))
@@ -50,6 +46,14 @@ class Test(unittest.TestCase):
         self.assertSequenceEqual(next(eatest), (2, 0, 76, 45))
         with self.assertRaises(StopIteration):
             next(eatest)
+    
+    def test_get_eulers_table(self):
+        expected_table = [
+            (1, 31, 1, 1), (1, 14, 2, 1), (2, 3, 5, 3), (4, 2, 22, 13),
+            (1, 1, 27, 16), (2, 0, 76, 45)
+        ]
+        actual_table = uf.get_euclids_table(76, 45)
+        self.assertEqual(expected_table, actual_table)
     
     def test_get_hcf(self):
         self.assertEqual(uf.get_hcf(76, 45), 1)
@@ -60,6 +64,7 @@ class Test(unittest.TestCase):
         self.assertEqual(uf.get_lowest_fraction(76, 45), (76, 45))
         self.assertEqual(uf.get_lowest_fraction(3528, 966), (84, 23))
     
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
