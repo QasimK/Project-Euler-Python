@@ -43,7 +43,7 @@ def get_factors(number):
     return factors
 
 
-def get_proper_divisor(number):
+def get_proper_divisors(number):
     """Return all proper divisors of a number
     
     Proper factors are all factors excluding the number itself

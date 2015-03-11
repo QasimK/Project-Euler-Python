@@ -32,7 +32,7 @@ def get_all_abundants(max_number):
     abundants = []
     #12 is known to be the smallest abundant
     for n in range(12, max_number):
-        if sum(factors.get_proper_divisor(n)) > n:
+        if sum(factors.get_proper_divisors(n)) > n:
             abundants.append(n)
     return abundants
 

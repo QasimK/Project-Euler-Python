@@ -47,7 +47,7 @@ if __name__ == '__main__':
     _max = 10000
     for x in range(4, _max): #Excludes 10,000 (we know 1, 2, 3 are not amicable)
         if x not in list_of_numbers_to_ignore:
-            x_proper_factors = factors.get_proper_divisor(x)
+            x_proper_factors = factors.geget_proper_divisors)
             x_factors_sum = sum(x_proper_factors)
             
             y = x_factors_sum
@@ -58,7 +58,7 @@ if __name__ == '__main__':
                 continue
             
             if y < _max and y != x:
-                y_proper_factors = factors.get_proper_divisor(y)
+                y_proper_factors = factors.geget_proper_divisors)
                 y_factors_sum = sum(y_proper_factors)
                 
                 if y_factors_sum == x:

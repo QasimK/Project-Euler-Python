@@ -27,11 +27,11 @@ class Test(unittest.TestCase):
         self.assertEqual(set(uf.get_factors(7)), {1, 7})
     
     def test_get_proper_divisors(self):
-        self.assertEqual(set(uf.get_proper_divisor(1)), set())
-        self.assertEqual(set(uf.get_proper_divisor(2)), {1})
-        self.assertEqual(set(uf.get_proper_divisor(3)), {1})
-        self.assertEqual(set(uf.get_proper_divisor(4)), {1, 2})
-        self.assertEqual(set(uf.get_proper_divisor(32)), {1, 2, 16, 4, 8})
+        self.assertEqual(set(uf.get_proper_divisors(1)), set())
+        self.assertEqual(set(uf.get_proper_divisors(2)), {1})
+        self.assertEqual(set(uf.get_proper_divisors(3)), {1})
+        self.assertEqual(set(uf.get_proper_divisors(4)), {1, 2})
+        self.assertEqual(set(uf.get_proper_divisors(32)), {1, 2, 16, 4, 8})
     
     def test_get_proper_factors(self):
         self.assertEqual(set(uf.get_proper_factors(1)), set())
