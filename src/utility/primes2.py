@@ -56,6 +56,16 @@ class PrimeList:
             if self.is_prime(n):
                 yield n
     
+    def get_prime_factors(self, number):
+        """Yield the prime factors of a number"""
+        for prime in self.get_primes():
+            while number % prime == 0:
+                yield prime
+                number /= prime
+            
+            if number == 1:
+                break
+    
     def __str__(self):
         s=""
         for i, is_prime in enumerate(self.number_list):

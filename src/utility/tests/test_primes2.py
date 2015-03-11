@@ -67,6 +67,16 @@ class Test(unittest.TestCase):
         self.assertEqual(next(primes), 5)
         self.assertEqual(next(primes), 7)
         self.assertEqual(next(primes), 11)
+    
+    def test_get_prime_factors(self):
+        pfs = self.prime_list.get_prime_factors(36)
+        self.assertEqual(list(pfs), [2, 2, 3, 3])
+        
+        pfs = self.prime_list.get_prime_factors(7)
+        self.assertEqual(next(pfs), 7)
+        with self.assertRaises(StopIteration):
+            next(pfs)
+
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
