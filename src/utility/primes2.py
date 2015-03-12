@@ -26,15 +26,15 @@ class PrimeList:
         #All new numbers are primes until they are crossed off
         self.number_list.extend(array.array('b', [1])*num_new)
         
-        for marker_num in range(2, maths.floor(upto_num/2) + 1):
+        for marker_num in range(2, maths.floor(maths.sqrt(upto_num)) + 1):
             #For efficiency only use prime marked numbers
             if not self.is_prime(marker_num):
                 continue
             
-            min_x = max(maths.floor(max_cur_known / marker_num) + 1, 2)
-            max_x = maths.floor(upto_num / marker_num)
+            min_x = max(max_cur_known // marker_num + 1, marker_num)
+            max_x = upto_num // marker_num
             
-            for x in range(min_x, max_x+1):
+            for x in range(min_x, max_x + 1):
                 self.number_list[marker_num*x] = 0 # Non-prime
     
     def get_primes(self, startnum=2):
