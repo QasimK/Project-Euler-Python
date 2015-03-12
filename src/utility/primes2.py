@@ -33,10 +33,9 @@ class PrimeList:
             
             min_x = max(maths.floor(max_cur_known / marker_num) + 1, 2)
             max_x = maths.floor(upto_num / marker_num)
-            non_primes = (marker_num*x for x in range(min_x, max_x+1))
             
-            for non_prime in non_primes:
-                self.number_list[non_prime] = 0
+            for x in range(min_x, max_x+1):
+                self.number_list[marker_num*x] = 0 # Non-prime
     
     def get_primes(self, startnum=2):
         """A generator which returns prime numbers
