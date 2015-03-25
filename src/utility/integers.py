@@ -80,4 +80,17 @@ def is_pentagonal(num):
 
 def choose(n, r):
     """Return n choose r"""
-    return maths.factorial(n) // maths.factorial(r) // maths.factorial(n - r)
+    if r > n-r:
+        r = n-r
+    
+    value = 1
+    m = n
+    k = r
+    while m > n - r:
+        value *= m
+        m -= 1
+    while k > 1:
+        value //= k
+        k -= 1
+    
+    return value
