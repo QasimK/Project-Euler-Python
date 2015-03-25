@@ -90,6 +90,17 @@ class Test(unittest.TestCase):
             with self.subTest(i=i):
                 self.assertEqual(next(pentagonals), actual_pentagonals[i])
     
+    def test_choose(self):
+        self.assertEqual(integers.choose(0, 0), 1)
+        self.assertEqual(integers.choose(1, 0), 1)
+        self.assertEqual(integers.choose(1, 1), 1)
+        
+        self.assertEqual(integers.choose(3, 1), integers.choose(3, 2))
+        
+        self.assertEqual(integers.choose(5, 2), 10)
+        self.assertEqual(integers.choose(6, 3), 20)
+        self.assertEqual(integers.choose(7, 5), 21)
+
 
 if __name__ == "__main__":
     unittest.main()
