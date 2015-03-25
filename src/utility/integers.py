@@ -77,3 +77,7 @@ def is_pentagonal(num):
             return True
         else:
             return False
+
+def choose(n, r):
+    """Return n choose r"""
+    return maths.factorial(n) // maths.factorial(r) // maths.factorial(n - r)
