@@ -13,13 +13,13 @@ from that r to smaller r.
 
 from utility import start, integers
 
-def get_working_range(n, r):
+def get_working_size(n, r):
     """Return all k s.t. nCk > X, given smallest r such that nCr > X"""
-    return range(r, n - r + 1)
+    return n - 2*r + 1
     
 
 def p53():
-    working_values = []
+    num_values = 0
     # First ones that work from question
     n = 23
     r = 10
@@ -30,11 +30,11 @@ def p53():
             r -= 1
         
         # The last r that worked is actually r + 1:
-        working_values.extend([(n, k) for k in get_working_range(n, r + 1)])
+        num_values += get_working_size(n, r + 1)
         
         n += 1
     
-    return len(working_values)
+    return num_values
 
 if __name__ == '__main__':
     start.time_functions(p53)
