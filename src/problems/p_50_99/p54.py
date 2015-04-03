@@ -25,6 +25,7 @@ def parse_datafile(data_file=DATA_FILE):
     
     return player1_hands, player2_hands
 
+
 def score_hand(hand):
     '''Return poker hand ['5H', '5C', '6S', '7S', 'KD'] score (Score, c1, c2...)
     where c1, c2, ... are comparison values for two hands of the same Score
@@ -70,11 +71,6 @@ def score_hand(hand):
         # Only one suit
         return (len(chand) == 5 and len(set(s[0] for s in chand.values())) == 1)
     
-    def is_straight():
-        '''Return if 5 cards in a row'''
-        return all([sorted_card_values[i] - 1 == sorted_card_values[i + 1]
-                    for i in range(4)])
-    
     def is_royal_flush():
         return (sorted_card_values == [14, 13, 12, 11, 10] and is_flush())
     
@@ -99,6 +95,11 @@ def score_hand(hand):
         
         return False
     
+    def is_straight():
+        '''Return if 5 cards in a row'''
+        return all([sorted_card_values[i] - 1 == sorted_card_values[i + 1]
+                    for i in range(4)])
+    
     def is_three_kind():
         '''Return three-kind value or False'''
         # Three unique values, with one value having three suits
@@ -118,12 +119,12 @@ def score_hand(hand):
                 if len(suits) == 2:
                     values.append(value)
                 else:
-                    fvalue = value
+                    final_value = value
             
             if len(values) == 2:
-                scores = sorted(values, reverse=True)
-                scores.append(fvalue)
-                return scores
+                values.sort(reverse=True)
+                values.append(final_value)
+                return values
         
         return False
     
@@ -140,13 +141,17 @@ def score_hand(hand):
                     remaining.append(value)
             
             if highest_value:
-                r = [highest_value]
-                r.extend(sorted(remaining, reverse=True))
-                return r
+                remaining.sort(reverse=True)
+                return [highest_value] + remaining
         
         return False
     
-    if is_royal_flush():
+    # Partial optimisation by having two most common cases at front
+    if len(chand) == 5 and not is_straight() and not is_flush():
+        return [1] + sorted_card_values
+    elif len(chand) == 4:
+        return [2] + is_pair()
+    elif is_royal_flush():
         return (10, )
     elif is_straight() and is_flush():
         return (9, sorted_card_values[0])
@@ -162,15 +167,12 @@ def score_hand(hand):
         return (4, is_three_kind())
     elif is_two_pairs():
         return [3] + is_two_pairs()
-    elif is_pair():
-        return [2] + is_pair()
-    else:
-        return [1] + sorted_card_values
-
         
+
+
 def is_player1_winner(hand1, hand2):
     '''Return if Player 1 wins (player 1 is hand1)'''
-    s1, s2 = (list(score_hand(hand1)), list(score_hand(hand2)))
+    s1, s2 = (score_hand(hand1), score_hand(hand2))
     
     for i in range(len(s1)):
         if s1[i] > s2[i]:
@@ -180,11 +182,13 @@ def is_player1_winner(hand1, hand2):
             
     raise Exception("They are all equal!")
 
+
 def p54():
     player1_hands, player2_hands = parse_datafile()
     player1_wins = [is_player1_winner(player1_hands[i], player2_hands[i])
-            for i in range(len(player1_hands))]
+                    for i in range(len(player1_hands))]
     return player1_wins.count(True)
+
 
 if __name__ == '__main__':
     start.time_functions(p54)
